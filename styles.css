@@ -3,9 +3,8 @@ div ul {
     padding: 0;  
 }
 
-.main-level {
-    margin-top: 10px; 
-    margin-bottom: 10px; 
+.main-level a {
+    margin: 15px 0px !important; /*prioritizes spacing on main headers in navbar*/ 
 }
 
 body {
@@ -18,9 +17,15 @@ body {
     flex-shrink: 0; 
 }
 
+#sidebar a {
+    margin: 5px 0px; 
+    text-decoration: none; 
+    display: block; /* idt this is best practice but it lets me manipulate links with margins */
+    color: black; 
+}
+
 .button {
     display: block; 
-    width: 70px; 
     margin: 10px 0px; 
     background-color: rgb(136, 176, 234); 
     padding: 10px; 
@@ -28,4 +33,13 @@ body {
     text-decoration: none;
     color: black; 
     border: 2px solid black; 
+    text-align: center; 
+}
+
+#sidebar .main-level a {
+    color: purple !important; 
+}
+
+#current a {
+    color: rgb(225, 176, 28) !important; 
 }
