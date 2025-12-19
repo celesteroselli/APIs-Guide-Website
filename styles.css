@@ -1,4 +1,4 @@
-div ul {
+#nav {
     list-style: none; 
     padding: 0;  
 }
@@ -37,7 +37,7 @@ body {
 }
 
 #sidebar .main-level a {
-    color: purple !important; 
+    color: purple; 
 }
 
 #current a {
