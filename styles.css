@@ -4,7 +4,7 @@
 }
 
 .main-level a {
-    margin: 15px 0px !important; /*prioritizes spacing on main headers in navbar*/ 
+    margin-top: 20px !important; 
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 }
 
 #sidebar a {
-    margin: 5px 0px; 
+    margin: 10px 0px; 
     text-decoration: none; 
     display: block; /* idt this is best practice but it lets me manipulate links with margins */
     color: black; 
