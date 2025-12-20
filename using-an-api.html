@@ -39,7 +39,7 @@
             you can still do simpler things like retreive a random image of a cat. 
           </p>
           <p>Let's try that out now! This guide will cover calling an API using Javascript, but you can also do it using Python or other languages. 
-            Here's the javascript code for getting an image from calling an API: 
+            Here's the javascript code for calling the cat API: 
           </p>
           <p class="code">const catapi_call = await fetch('https://api.thecatapi.com/v1/images/search')</p>
           <p>The fetch command, used above, is just a way to get data from an API. 
@@ -47,6 +47,8 @@
             Here, it looks at the catapi's API (which is why its https://<b><u>api</u></b>...), 
             then checks the images it provides, and retrives the search information. 
           </p>
+          <p>Since we're using await, we need an async function. All of our code will now be added to this function, which we'll later call whenever the DOM loads. See below for what you should have so far! </p>
+          <p class="code">async function setRandomCatImage() {<br>&#9;const catapi_call = await fetch('https://api.thecatapi.com/v1/images/search")<br>&#9;...add more here...<br>}</p>
           <p>You can actually view the API on the web if you go to the url, which is super useful when you need to figure out what the name is for a piece of data you want to retrieve. </p>
           <p>For the url above, check it out at <a target="_blank" href="https://api.thecatapi.com/v1/images/search">https://api.thecatapi.com/v1/images/search</a>! </p>
           <p>If you click the pretty-print checkbox, you will be able to see it like below: </p>
@@ -56,23 +58,22 @@
           <p class="code">const catapi_json = await catapi_call.json()</p>
           <p>Now that you have the JSON, let's get your image from it! If you check the <a target="_blank" href="https://api.thecatapi.com/v1/images/search">raw data</a> again, you're going to need to get the url, width, and height in order to correctly display your image. </p>
           <p>Next, create variables and extract specific properties from the JSON. Since CatAPI will return an array of values (one per image) and we only requested one image, we can just index into the first array. </p>
-          <p class="code">const img_url = catapi_json[0].url
-            <br>const img_width = catapi_json[0].width
-            <br>const img_height = catapi_json[0].height
-          </p>
+          <p class="code">const img_url = catapi_json[0].url<br>const img_width = catapi_json[0].width<br>const img_height = catapi_json[0].height</p>
           <p>Using that, let's display your image! In order to identify your HTML image element in Javascript, you're going to need to add an ID attribute.</p>
           <p class="code">&#60;img id="catapi_image_elem"&#62;</p>
           <p>Now, in Javascript, create a constant which references the HTML image element. </p>
           <p class="code">const image_elem = document.getElementById('catapi_image_elem')</p>
           <p>Now, beneath everything you've written so far in your Javascript file, write a few lines which change the src attribute of your image to the src from the api, sets your image width to img_width, and sets image height to img_height</p>
-          <p class="code">image_elem.src = img_url
-            <br>image_elem.width = img_width
-            <br>image_elem.height = img_height
-          </p>
-          <p>When you view your website, you'll now see a random cat image like the one below: </p>
-          <img id="catapi_image_elem">
-          <p>If you don't, go back through this guide and make sure that you've followed every step</p>
-          <a style="width: 230px;" class="button" href="/filtering-and-sorting.html">learn how to filter and sort results</a>
+          <p class="code">image_elem.src = img_url<br>image_elem.width = img_width<br>image_elem.height = img_height</p>
+          <p>By now, your code should look like this: </p>
+          <p class="code">async function setRandomCatImage() {<br>&#9;const catapi_call = await fetch('https://api.thecatapi.com/v1/images/search')<br>&#9;const catapi_json = await catapi_call.json()<br>&#9;const img_url = catapi_json[0].url<br>&#9;const img_width = catapi_json[0].width<br>&#9;const img_height = catapi_json[0].height<br>&#9;const image_elem = document.getElementById('catapi_image_elem')<br>&#9;image_elem.src = img_url<br>}</p>
+          <p>Finally, we need to call this function when the DOM loads! </p>
+          <p class="code">document.addEventListener('DOMContentLoaded', setRandomCatImage)<br>async function setRandomCatImage() {<br>&#9;const catapi_call = await fetch('https://api.thecatapi.com/v1/images/search')<br>&#9;const catapi_json = await catapi_call.json()<br>&#9;const img_url = catapi_json[0].url<br>&#9;const img_width = catapi_json[0].width<br>&#9;const img_height = catapi_json[0].height<br>&#9;const image_elem = document.getElementById('catapi_image_elem')<br>&#9;image_elem.src = img_url<br>}</p>
+          <p>When you view your website, you'll now see a random cat image or gif like the one below!</p>
+          <img id="catapi_image_elem" width="400">
+          <p>If you don't, go back through this guide and make sure that you've followed every step, and check your code against the final provided block. </p>
+          <p>When you reload your site, you'll see another, (the same applies here) since your javascript will call the API again which will return a new random image url! </p>
+          <a style="width: 230px;" class="button" href="/using-an-api-key.html">learn how to use an API key</a>
       </div>
     </div>
     <script src="index.js"></script>
