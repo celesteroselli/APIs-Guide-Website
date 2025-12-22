@@ -17,7 +17,7 @@
             <li><a href="/info.html">More about APIs</a></li>
             
             <li class="main-level"><a href="/getting-started.html">CatAPI</a></li>
-            <li><a href="/getting-started.html">Creating a simple website</a></li>
+            <li><a href="/getting-started.html">Getting started</a></li>
             <li><a href="/using-an-api.html">Using the API to get images</a></li>
 
             <li class="main-level"><a href="/api-key.html">API Keys</a></li>
@@ -28,16 +28,44 @@
         </ul>
     </div>
     <div id="main-content">
-        <h1>using an API key: with a framework</h1>
+        <h1>using an API key (requires a framework)</h1>
         <p>Now that you've learned how to use an API without an API key, here's a guide on using one with an API key. </p>
-        <p>Many APIs require that you use an API key, which allows the API to check who your request is coming from. For example, in paid APIs it can be used to check if you have paid for a certain plan of that API or to charge you depending on the number of requests you have made. </p>
-        <p>If you don't yet have an api key for the cat api, head over to <a href="api-key.html">this page</a>. If you already have your API key, head over to your email and copy it onto your clipboard. </p>
-        <p>When using an API key, its really important to keep it a secret. One of the ways we can do this in public codebases (such as a public repository on GitHub) is use environmental variables. </p>
+        <p>You can learn more about API keys <a target="_blank" href="info.html">here</a>. </p>
+        <p>When using an API key, its really important to keep it a secret. One of the ways we can do this in public codebases (such as a public repository on GitHub) is use environmental variables (**this is only available with frameworks, not vanilla Javascript). </p>
         <p>This guide will cover using a .env file to store an API key for testing, then deploying on Vercel with an API key as an environmental variable. </p>
-        <h2>calling an API with a key (frameworks <b>only</b>)</h2>
-        <h3>Locally</h3>
-        <p>If you are not using vanilla html/css/js, then it is possible to keep your API key secret. You can do this by setting up a .env and gitignore locally, then using environmental variables after deployment. </p>
-        <p>First, add a .gitignore file to your repository. If you're working in VS code, you can do this by </p>
+        <h2>calling an API with a key</h2>
+        <h3>Locally (for building and testing)</h3>
+        <p>Setting up a .env file and adding it to the .gitignore allows you to make your codebase public while keeping an API key private and stored locally on your device. </p>
+        <p>First, add a .gitignore file to your repository. If you're working in VS code, you can follow the guide below to create and modify each file: </p>
+        <img width="400" src="images/add_file_button_vs_code.png">
+        <img width="400" src="images/adding_a_.gitignore_vs_code.png">
+        <p>Then, add the filename ".env" to your .gitignore. This will tell git to ignore the file and not commit it to the repository, which allows it to stay local on your computer. </p>
+        <img width="400" src="images/adding_the_.env_to_the_.gitignore_in_vs_code.png">
+        <p>Now, create a .env file: </p>
+        <img width="400" src="images/adding_a_.env_vs_code.png">
+        <p>And add your API key to it. Do not include quotes around it! If you still have your API key from CatAPI in your email, that's great! If not, just copy it again from their email. </p>
+        <img width="400" src="images/edited_api_key_in_.env.png">
+        <p>Note: your .env file should be in the root of your repository, along with the .gitignore. </p>
+        <p>Now, you can access this API key locally. How this is done depends on the framework, but a few are outlined below: </p>
+        <h4>React (use this if you followed the linked workshop!)</h4>
+        <p>In your code to access the key use the below: </p>
+        <p class="code">const api_key = process.env.API_KEY</p>
+        <h4>Node.js</h4>
+        <p>use npm to install dotenv (run "npm install dotenv" in terminal). Then, at the top of the main Javascript file, include the line below: </p>
+        <p class="code">require('dotenv').config()</p>
+        <p>Beneath that, you can now access environmental variables like this: </p>
+        <p class="code">const api_key = process.env.API_KEY</p>
+        <h4>Astro</h4>
+        <p>Use the code below in your Javascript at the top of your file: </p>
+        <p class="code">const api_key = import.meta.env.API_KEY</p>
+        <p>You can now use the API key just as you would any other variable! </p>
+        <h3>Calling the API</h3>
+        <p>Now that you've created a variable for your API key and know how to access it, here's how to call CatAPI using it. </p>
+        <p>One simple way to do this is to take the previous code (with the fetch statement and json conversion) and simply add "&api_key={your_api_key}" to the end. </p>
+        <p>You can try this out with the following code (adapt the variable call depending on your framework): </p>
+        <p class="code">
+          https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=REPLACE_ME
+        </p>
         <h3>Deployment: Vercel</h3>
         <p>Using plain Javascript, its not possible to hide our API key. </p>
         
