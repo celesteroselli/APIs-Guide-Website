@@ -1,82 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gaegu&display=swap");
+/* fonts all from the athena website https://athena.hackclub.com */
+
+@font-face {
+    font-family: "Phantom Sans";
+    src: url("https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff")
+            format("woff"),
+        url("https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2")
+            format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Phantom Sans";
+    src: url("https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff")
+            format("woff"),
+        url("https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2")
+            format("woff2");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Phantom Sans";
+    src: url("https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff")
+            format("woff"),
+        url("https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2")
+            format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    font-family: "Phantom Sans";
+}
+
+.playfair-display {
+    font-family: "Playfair Display", serif;
+}
+
+.handwritten {
+    font-family: "Gaegu", sans-serif;
+}
+
 #nav {
-    list-style: none; 
-    padding: 0;  
+    list-style: none;
+    padding: 0;
 }
 
 .main-level a {
-    margin-top: 20px !important; 
+    margin-top: 20px !important;
 }
 
 .flexbox {
-    display: flex; 
-    flex-direction: row; 
+    display: flex;
+    flex-direction: row;
 }
 
 * {
-    margin: 0px; 
+    margin: 0px;
 }
 
 p {
-    margin: 10px 0px; 
+    margin: 10px 0px;
+    font-size: 17px;
+    padding: 2px;
 }
 
 #main-content {
-    margin: 10px; 
-}
-
-@media (max-height: 100vh) {
-    #main-content {
-        height: 96vh; /* for some reason this is the height where it didn't make me scroll down, idk maybe it has smth to do with margins */
-    }
+    margin: 20px;
+    margin-left: 270px;
 }
 
 #sidebar {
-    width: 200px; 
-    flex-shrink: 0; 
-    background: rgb(236, 236, 236); 
-    padding: 10px; 
-    padding-bottom: 0px; 
+    width: 200px;
+    flex-shrink: 0;
+    background: rgb(236, 236, 236);
+    padding: 20px;
+    padding-bottom: 0px;
+    position: fixed;
+    height: 100vh;
 }
 
 #sidebar a {
-    margin: 10px 0px; 
-    text-decoration: none; 
+    margin-top: 10px;
+    margin-left: 5px;
+    text-decoration: none;
     display: block; /* idt this is best practice but it lets me manipulate links with margins */
-    color: black; 
+    color: black;
+}
+
+#sidebar a:not(.main-level):hover {
+    color: #8e2d2f8a;
+}
+
+#athena-link {
+    padding-left: 26px; /* centering divs is my enemy, this was the best temporary solution i could come up with before i went insane */
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#athena-link:hover {
+    color: #8e2d2f !important;
 }
 
 .button {
-    display: block; 
-    margin: 10px 0px; 
-    background-color: rgb(136, 176, 234); 
-    padding: 10px; 
-    border-radius: 10px; 
+    display: block;
+    margin: 10px 0px;
+    background-color: rgb(136, 176, 234);
+    padding: 10px;
+    border-radius: 10px;
     text-decoration: none;
-    color: black; 
-    border: 2px solid black; 
-    text-align: center; 
+    color: black;
+    border: 2px solid black;
+    text-align: center;
 }
 
 #sidebar .main-level a {
-    color: purple; 
+    margin-left: -5px;
+    padding: 5px;
+    color: #8e2d2f;
+    font-weight: 400;
+    font-size: 18px;
+    border-radius: 6px;
 }
 
-#current a {
-    color: rgb(225, 176, 28) !important; 
+#sidebar .main-level a:hover {
+    color: #8e2d2f;
+    background-color: lightgrey;
+    transition: all 100ms;
+}
+
+#sidebar .current.main-level a {
+    font-weight: 700;
+    color: #8e2d2f !important;
+    background-color: rgb(197, 197, 197);
+    transition: all 100ms;
+}
+
+.current a:not(.main-level) {
+    color: #8e2d2f !important;
+}
+
+a.external {
+    color: lightcoral !important;
+}
+
+a.external:hover {
+    color: #8e2d2f !important;
+}
+
+.api-list {
+    padding: 3px;
 }
 
 .code {
-    background-color: rgb(231, 231, 231); 
-    padding: 10px; 
-    border-radius: 5px; 
+    background-color: rgb(231, 231, 231);
+    padding: 10px;
+    border-radius: 5px;
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
     font-weight: 30px;
     font-style: normal;
-    font-size: 12px; 
-    white-space: pre; 
+    font-size: 12px;
+    white-space: pre;
 }
 
 .important {
-    color: cornflowerblue; 
+    color: cornflowerblue;
 }
