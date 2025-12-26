@@ -40,6 +40,11 @@
     font-family: "Phantom Sans";
 }
 
+html,
+body {
+    height: 100%;
+}
+
 .playfair-display {
     font-family: "Playfair Display", serif;
 }
@@ -60,6 +65,7 @@
 .flexbox {
     display: flex;
     flex-direction: row;
+    min-height: 100%;
 }
 
 * {
@@ -68,19 +74,33 @@
 
 p {
     margin: 10px 0px;
-    font-size: 17px;
-    padding: 2px;
+    font-size: 18px;
+    padding: 3px;
+}
+
+h1 {
+    font-size: 34px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: solid rgba(102, 102, 102, 0.524);
 }
 
 #main-content {
-    margin: 20px;
-    margin-left: 270px;
+    padding: 40px;
+    margin-left: 240px;
+    background: #ffebf5;
+    background: radial-gradient(
+        circle,
+        rgba(255, 235, 245, 1) 0%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    min-height: 100%;
 }
 
 #sidebar {
     width: 200px;
     flex-shrink: 0;
-    background: rgb(236, 236, 236);
+    background: rgba(216, 216, 216, 0.65);
     padding: 20px;
     padding-bottom: 0px;
     position: fixed;
@@ -148,7 +168,7 @@ p {
 }
 
 a.external {
-    color: lightcoral !important;
+    color: rgb(210, 101, 101) !important;
 }
 
 a.external:hover {
@@ -162,6 +182,7 @@ a.external:hover {
 .code {
     background-color: rgb(231, 231, 231);
     padding: 10px;
+    margin: 2px;
     border-radius: 5px;
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
@@ -174,3 +195,27 @@ a.external:hover {
 .important {
     color: cornflowerblue;
 }
+
+/* #spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/glyph_rep.svg");
+    background-size: 40px 40px;
+    background-repeat: repeat;
+    z-index: -2;
+    pointer-events: none;
+}
+
+#spotlight-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: -1;
+    pointer-events: none;
+} */
