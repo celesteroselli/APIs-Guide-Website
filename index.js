@@ -7,5 +7,7 @@ async function setRandomCatImage() {
     const img_width = catapi_json[0].width
     const img_height = catapi_json[0].height
     const image_elem = document.getElementById('catapi_image_elem')
-    image_elem.src = img_url
+    if (image_elem) {
+        image_elem.src = img_url;
+    }
 }

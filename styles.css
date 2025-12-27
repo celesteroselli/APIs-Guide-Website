@@ -101,8 +101,8 @@ h1 {
 #sidebar {
     width: 200px;
     flex-shrink: 0;
-    /* background: rgba(216, 216, 216, 0.65); */
-    background: rgb(243, 243, 243);
+    /* background: rgb(243, 243, 243); */
+    background: #8c2e37;
     padding: 20px;
     padding-bottom: 0px;
     position: fixed;
@@ -115,21 +115,23 @@ h1 {
     margin-left: 5px;
     text-decoration: none;
     display: block; /* idt this is best practice but it lets me manipulate links with margins */
-    color: black;
+    color: rgb(199, 199, 199);
 }
 
 #sidebar a:not(.main-level):hover {
-    color: #8e2d2f8a;
+    /* color: #8e2d2f8a; */
+    color: rgb(226, 226, 226);
 }
 
 #athena-link {
     padding-left: 26px; /* centering divs is my enemy, this was the best temporary solution i could come up with before i went insane */
     font-size: 40px;
     font-weight: bold;
+    color: #fff !important;
 }
 
 #athena-link:hover {
-    color: #8e2d2f !important;
+    color: #662122 !important;
 }
 
 .button {
@@ -165,45 +167,55 @@ h1 {
     justify-content: space-between;
 }
 
+.next-link {
+    font-size: 18px;
+    text-decoration: underline;
+    color: rgb(88, 15, 15) !important;
+}
+
+.next-link:hover {
+    color: rgb(57, 5, 5) !important;
+}
+
 .nav-button {
     padding: 12px;
-    border: solid 1px rgb(255, 213, 235);
+    border: solid 1px #aa3a4380;
     border-radius: 10px;
-    background: rgb(255, 238, 247, 1);
+    background: #aa3a4365;
     text-decoration: none;
     transition: all;
     transition-duration: 100ms;
 }
 
 .nav-button:hover {
-    border: solid 1px rgb(255, 197, 227);
-    background: rgb(255, 231, 244);
+    border: solid 1px #aa3a4380;
+    background: #aa3a4380;
 }
 
 #sidebar .main-level a {
     margin-left: -5px;
     padding: 5px;
-    color: #8e2d2f;
+    color: rgb(238, 238, 238);
     font-weight: 400;
     font-size: 18px;
     border-radius: 6px;
 }
 
 #sidebar .main-level a:hover {
-    color: #8e2d2f;
-    background-color: lightgrey;
+    color: rgb(227, 227, 227);
+    background-color: #692329cb;
     transition: all 100ms;
 }
 
 #sidebar .current.main-level a {
-    font-weight: 700;
-    color: #8e2d2f !important;
-    background-color: rgb(197, 197, 197);
+    font-weight: 600;
+    color: #fff !important;
+    background-color: #692329;
     transition: all 100ms;
 }
 
 .current a:not(.main-level) {
-    color: #8e2d2f !important;
+    color: #fff !important;
 }
 
 .external {
