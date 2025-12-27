@@ -1,11 +1,17 @@
 // taken from https://github.com/hackclub/athena/blob/main/components/Background.tsx (adapted to be not-React)
 const spotlightOverlay = document.getElementById('spotlight-overlay');
 const spotlight = document.getElementById('spotlight');
+let overlayShown = false;
 
 window.addEventListener('mousemove', (event) => {
 const rect = spotlight.getBoundingClientRect();
 const x = event.clientX - rect.left;
 const y = event.clientY - rect.top;
+
+if (!overlayShown) {
+    spotlight.style.opacity = '1';
+    overlayShown = true;
+}
 
 spotlightOverlay.style.background = `
     radial-gradient(

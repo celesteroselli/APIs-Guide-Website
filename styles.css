@@ -220,7 +220,7 @@ h1 {
 }
 
 .code {
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(240, 240, 240);
     padding: 10px;
     margin: 2px;
     border-radius: 5px;
@@ -245,6 +245,7 @@ h1 {
     background-image: url("images/glyph_rep.svg");
     background-size: 40px 40px;
     background-repeat: repeat;
+    opacity: 0.2;
     z-index: -2;
     pointer-events: none;
 }
